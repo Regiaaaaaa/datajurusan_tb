@@ -13,12 +13,18 @@ class Siswa extends Model
     protected $fillable = [
         'nim',
         'name',
-        'jurusan_id'
+        'jurusan_id',
+        'eskul_id'
 
     ];
 
     public function jurusan(): BelongsTo
     {
         return $this->belongsTo(Jurusan::class);
+    }
+
+    public function eskul(): BelongsTo
+    {
+        return $this->belongsTo(Eskul::class);
     }
 }

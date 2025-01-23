@@ -28,6 +28,9 @@ class SiswaResource extends Resource
                 Forms\Components\Select::make('jurusan_id')
                 ->relationship('jurusan','name')
                 ->required(),
+                Forms\Components\Select::make('eskul_id')
+                ->relationship('eskul','name')
+                ->required(),
             ]);
     }
 
@@ -38,10 +41,13 @@ class SiswaResource extends Resource
                 Tables\Columns\TextColumn::make('nim'),
                 Tables\Columns\TextColumn::make('name') ->searchable(),
                 Tables\Columns\TextColumn::make('jurusan.name') ->searchable(),
+                Tables\Columns\TextColumn::make('eskul.name') ->searchable(),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('jurusan_id')
                     ->relationship('jurusan','name'),
+                Tables\Filters\SelectFilter::make('eskul_id')
+                    ->relationship('eskul','name'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
