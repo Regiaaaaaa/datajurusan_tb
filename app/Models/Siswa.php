@@ -14,7 +14,8 @@ class Siswa extends Model
         'nim',
         'name',
         'jurusan_id',
-        'eskul_id'
+        'eskul_id',
+        'kelas_id'
 
     ];
 
@@ -26,5 +27,10 @@ class Siswa extends Model
     public function eskul(): BelongsTo
     {
         return $this->belongsTo(Eskul::class);
+    }
+
+    public function kelas(): BelongsTo
+    {
+        return $this->belongsTo(Kelas::class);
     }
 }
